@@ -1,0 +1,13 @@
+<p>list works!</p>
+<div *ngFor="let member of listMembers; let i = index" class="memberListWrapper card">
+  <div class="card-body">
+    <p>{{ member.firstName }}</p>
+    <p>{{ member.lastName }}</p>
+    <p>{{ active }}</p>
+  </div>
+  <div class="buttonWrapper">
+    <button class="btn btn-danger" (click)="removeMember(i)" [disabled]="!activateMember">remove from list</button>
+    <button class="btn btn-warning" (click)="deacivateMeber()">member</button>
+    <button class="btn btn-primary" (click)="updateMember(member.firstName, member.lastName)">update the member</button>
+  </div>
+</div>

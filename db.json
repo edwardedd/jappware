@@ -1,0 +1,9 @@
+{
+  "members":
+  [
+    { "firstName": "Rick", "lastName": "Sanchez" },
+    { "firstName": "Rick", "lastName": "Sanchez" },
+    { "firstName": "Rick", "lastName": "Parrot" },
+    { "firstName": "Peter", "lastName": "Griffn" }
+  ]
+}

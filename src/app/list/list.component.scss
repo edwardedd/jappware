@@ -1,0 +1,17 @@
+.card-body{
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.buttonWrapper{
+  display: flex;
+  button{
+    height: 50px;
+    font-size: 12px;
+    font-family: 'Ubuntu', sans-serif;
+    width: 33%;
+  }
+}
+
