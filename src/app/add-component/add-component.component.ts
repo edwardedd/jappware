@@ -10,13 +10,12 @@ import { MembersService } from '../services/members.service';
 export class AddComponentComponent implements OnInit {
 
   constructor(private service: MembersService) { }
-
+ 
   ngOnInit(): void {
   }
 
   onSubmit(form: NgForm){
     this.service.postItems(form.value.firstName, form.value.lastName).subscribe()
-    console.log(form.value.firstName)
   }
 
 }

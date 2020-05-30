@@ -9,6 +9,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddComponentComponent } from './add-component/add-component.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateMemberComponent } from './update-member/update-member.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     ListComponent,
     CatalogComponent,
-    AddComponentComponent
+    AddComponentComponent,
+    UpdateMemberComponent
   ],
   imports: [
     BrowserModule,

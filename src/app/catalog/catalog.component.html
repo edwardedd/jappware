@@ -5,8 +5,13 @@
       <p>{{member.lastName}}</p>
       <p>{{member.status}}</p>
     </div>
-    <button class="btn btn-primary" (click)="addToList(member.firstName,member.lastName,member.status, member.id)">add to list</button>
+    <button
+      class="btn btn-primary"
+      (click)="addToList(member.firstName,member.lastName,member.status, member.id)"
+    >
+      add to list
+    </button>
   </div>
 </div>
-<button class="btn btn-primary" (click)="addMember('edward','edd')">add</button>
+<hr>
 <app-add-component></app-add-component>

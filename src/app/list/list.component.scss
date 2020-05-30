@@ -15,3 +15,18 @@
   }
 }
 
+.list-wrapper{
+  height: 80vh;
+  overflow: auto;
+}
+.numbers{
+  display: flex;
+  justify-content: space-between;
+}
+
+.clearStorage{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+

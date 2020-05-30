@@ -1,30 +1,47 @@
-<p>list works!</p>
-<div *ngFor="let member of listMembers; let i = index" class="memberListWrapper card" #elem [id]="i">
-  <div class="card-body">
-    <p>{{ member.firstName }}</p>
-    <p>{{ member.lastName }}</p>
-    <p>{{ member.status ? "active" : "deactivated" }}</p>
-  </div>
-  <div class="buttonWrapper">
-    <button
-      class="btn btn-danger"
-      (click)="removeMember(i)"
+
+<div class="numbers">
+  <p *ngIf="listMembers">full member{{listMembers.length}}</p>
+  <p>deactivated member <span *ngIf="deactivateMembers">{{deactivateMembers}}</span></p>
+  <p>updated member{{updatedMember}}</p>
+</div>
+
+<div class="list-wrapper">
+  <div *ngFor="let member of listMembers; let i = index" class="memberListWrapper card" #elem [id]="i">
+    <div class="card-body">
+      <p id="name{{i}}">{{ member.firstName }}</p>
+      <p id="lastName{{i}}">{{ member.lastName }}</p>
+      <p>{{ member.status ? "active" : "deactivated" }}</p>
+      <p *ngIf="updatedMember>0">updated member</p>
+    </div>
+    <div class="buttonWrapper">
+      <button
+        class="btn btn-danger"
+        (click)="removeMember(i)"
+        [disabled]="!member.status"
+      >
+        remove from list
+      </button>
+      <button
+        class="btn btn-warning"
+        (click)="deacivateMeber($event,i,member)"
+        [id]="i"
+      >
+      {{ member.status ? "deactivated" : "activated" }} member
+      </button>
+      <button
+      class="btn btn-primary"
+      (click)="updateMember($event,i,member)"
       [disabled]="!member.status"
-    >
-      remove from list
-    </button>
-    <button
-      class="btn btn-warning"
-      (click)="deacivateMeber($event,i,member)"
-      [id]="i"
-    >
-    {{ member.status ? "deactivated" : "activated" }} member
-    </button>
-    <button
-    class="btn btn-primary"
-    (click)="updateMember(member.firstName, member.lastName,i)"
-    >
-      update the member
-    </button>
+      >
+        update the member
+      </button>
+    </div>
   </div>
 </div>
+<hr>
+
+<app-update-member
+[member]="member"
+(onChanged)="onChanged($event)"
+></app-update-member>
+<button class="btn btn-danger clearStorage" (click)="clearStorage()" >Clear the list</button>

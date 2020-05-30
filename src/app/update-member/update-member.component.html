@@ -1,0 +1,29 @@
+<div class="updateMember">
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+    <input
+      type="text"
+      class="form-control"
+      ngModel
+      name="firstName"
+      required
+      firstName
+      [value]="member[0]"
+    >
+    <input
+      type="text"
+      class="form-control"
+      ngModel
+      name="lastName"
+      required
+      lastName
+      [value]="member[1]"
+    >
+    <button
+      class="btn btn-primary"
+      type="submit"
+    >
+      Update member
+    </button>
+  </form>
+</div>
+
