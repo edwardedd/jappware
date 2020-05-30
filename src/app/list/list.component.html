@@ -1,13 +1,30 @@
 <p>list works!</p>
-<div *ngFor="let member of listMembers; let i = index" class="memberListWrapper card">
+<div *ngFor="let member of listMembers; let i = index" class="memberListWrapper card" #elem [id]="i">
   <div class="card-body">
     <p>{{ member.firstName }}</p>
     <p>{{ member.lastName }}</p>
-    <p>{{ active }}</p>
+    <p>{{ member.status ? "active" : "deactivated" }}</p>
   </div>
   <div class="buttonWrapper">
-    <button class="btn btn-danger" (click)="removeMember(i)" [disabled]="!activateMember">remove from list</button>
-    <button class="btn btn-warning" (click)="deacivateMeber()">member</button>
-    <button class="btn btn-primary" (click)="updateMember(member.firstName, member.lastName)">update the member</button>
+    <button
+      class="btn btn-danger"
+      (click)="removeMember(i)"
+      [disabled]="!member.status"
+    >
+      remove from list
+    </button>
+    <button
+      class="btn btn-warning"
+      (click)="deacivateMeber($event,i,member)"
+      [id]="i"
+    >
+    {{ member.status ? "deactivated" : "activated" }} member
+    </button>
+    <button
+    class="btn btn-primary"
+    (click)="updateMember(member.firstName, member.lastName,i)"
+    >
+      update the member
+    </button>
   </div>
 </div>

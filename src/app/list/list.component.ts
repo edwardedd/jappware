@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MembersService } from '../services/members.service';
 
 @Component({
@@ -7,15 +7,16 @@ import { MembersService } from '../services/members.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  listMembers: {firstName:string, lastName:string}[] = [];
+  @ViewChild('elem', {static: false})
+  elem: ElementRef;
+  listMembers: {firstName:string, lastName:string,status: boolean,id:number}[] = [];
   activateMember:boolean = true;
   active: string = 'active';
   activeButton: string = 'deactivate';
   constructor(private service: MembersService) { }
 
   ngOnInit(): void {
-    // this.listMembers = this.service.getMemberList()
-    this.listMembers = this.service.getFromStorage()
+    this.getData()
   };
 
   removeMember(index) {
@@ -24,20 +25,39 @@ export class ListComponent implements OnInit {
     localStorage.setItem('member', JSON.stringify(this.listMembers))
   };
 
-  deacivateMeber() {
-    this.activateMember = !this.activateMember
-    this.activateMember ? this.active = 'active' : this.active = 'inactive'
+  deacivateMeber(e,status,member) {
+    // for (let member of this.listMembers){
+      console.log(member)
+      
+      if(e.target.id==status){
+        member.status = !member.status
+        console.log('st',member)
+      }
+    // }
   }
 
-  updateMember(firstName,lastName){
-    
+  updateMember(firstName,lastName, index){
+
     const memberData={
       firstName,
       lastName
     };
+    // localStorage.clear()
+    // this.listMembers = this.service.getFromStorage()
     
-  }
 
+  };
+
+  ngAfterContentInit() {
+    this.getData()
+  };
+  getData() {
+    if ("member" in localStorage){
+      this.listMembers = this.service.getFromStorage()
+    }else {
+      this.listMembers = this.service.getMemberList()
+    }
+  }
   ngOnDestroy() {
     console.log('uytrewq')
     localStorage.clear();

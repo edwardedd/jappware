@@ -27,8 +27,8 @@ export class CatalogComponent implements OnInit {
     this.members.push({firstName:name, lastName: lastName})
   };
 
-  addToList(firstName,lastName) {
-    this.membersService.addMemberList(firstName,lastName)
+  addToList(firstName,lastName,status, id) {
+    this.membersService.addMemberList(firstName,lastName,status,id)
   }
 
 }

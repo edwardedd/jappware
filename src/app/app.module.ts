@@ -7,18 +7,22 @@ import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddComponentComponent } from './add-component/add-component.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ListComponent,
-    CatalogComponent
+    CatalogComponent,
+    AddComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,7 @@ import { Items } from './Items';
 })
 export class MembersService {
   mockUrl = 'http://localhost:3000/members'
-  memberList: {firstName:string, lastName:string}[] = [];
+  memberList: {firstName:string, lastName:string, status:boolean,id:number}[] = [];
 
   constructor(private http: HttpClient){}
   getAllItems() {
@@ -21,8 +21,8 @@ export class MembersService {
     })
   };
 
-  addMemberList(firstName: string, lastName: string){
-    this.memberList.push({firstName, lastName})
+  addMemberList(firstName: string, lastName: string, status:boolean,id:number){
+    this.memberList.push({firstName, lastName, status,id})
     localStorage.setItem('member', JSON.stringify(this.memberList))
   }
 

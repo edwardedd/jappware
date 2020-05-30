@@ -1,9 +1,12 @@
-<div *ngFor="let member of members; let i = index" class="memberWrapper card">
-  <div class="card-body">
-    <p>{{member.firstName}}</p>
-    <p>{{member.lastName}}</p>
-    <p>{{i}}</p>
+<div class="memberCard-wrapper">
+  <div *ngFor="let member of members; let i = index" class="memberWrapper card">
+    <div class="card-body">
+      <p>{{member.firstName}}</p>
+      <p>{{member.lastName}}</p>
+      <p>{{member.status}}</p>
+    </div>
+    <button class="btn btn-primary" (click)="addToList(member.firstName,member.lastName,member.status, member.id)">add to list</button>
   </div>
-  <button class="btn btn-primary" (click)="addToList(member.firstName,member.lastName)">add to list</button>
 </div>
 <button class="btn btn-primary" (click)="addMember('edward','edd')">add</button>
+<app-add-component></app-add-component>

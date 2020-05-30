@@ -1,0 +1,25 @@
+<div class="addComponent">
+  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+    <input
+    type="text"
+    class="form-control"
+    ngModel
+    name="firstName"
+    required
+    firstName
+    >
+    <input
+    type="text"
+    class="form-control"
+    ngModel
+    name="lastName"
+    required
+    lastName>
+    <button
+      class="btn btn-primary"
+      type="submit"
+    >
+    Add to catalog</button>
+  </form>
+</div>
+
