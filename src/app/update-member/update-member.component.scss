@@ -13,3 +13,9 @@ button{
   font-family: 'Ubuntu', sans-serif;
   font-size: 12px;
 }
+@media screen and (max-width: 990px){
+  .updateMember{
+    position: relative;
+    bottom: 80px;
+  }
+}

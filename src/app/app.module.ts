@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddComponentComponent } from './add-component/add-component.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateMemberComponent } from './update-member/update-member.component';
+import { MainComponent } from './main/main.component';
+import { StartPageComponent } from './start-page/start-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { UpdateMemberComponent } from './update-member/update-member.component';
     ListComponent,
     CatalogComponent,
     AddComponentComponent,
-    UpdateMemberComponent
+    UpdateMemberComponent,
+    MainComponent,
+    StartPageComponent
   ],
   imports: [
     BrowserModule,

@@ -4,55 +4,29 @@
       "id": 1,
       "firstName": "Rick",
       "lastName": "Sanchez",
-      "status": true
+      "status": true,
+      "updated": false
     },
     {
       "id": 2,
-      "firstName": "Rick",
-      "lastName": "Sanchez",
-      "status": true
+      "firstName": "Captain",
+      "lastName": "Morgan",
+      "status": true,
+      "updated": false
     },
     {
       "id": 3,
-      "firstName": "Rick",
-      "lastName": "Parrot",
-      "status": true
+      "firstName": "Peter",
+      "lastName": "Griffn",
+      "status": true,
+      "updated": false
     },
     {
       "id": 4,
-      "firstName": "Peter",
-      "lastName": "Griffn",
-      "status": true
-    },
-    {
-      "firstName": "Olga",
-      "lastName": "sdfsddfs",
-      "id": 5,
-      "status": true
-    },
-    {
-      "firstName": "Olya",
-      "lastName": "Mosesov",
-      "id": 6,
-      "status": true
-    },
-    {
-      "firstName": "Rickeeez",
-      "lastName": "Parrot",
-      "status": "active",
-      "id": 7
-    },
-    {
-      "firstName": "Olya",
-      "lastName": "Sanchez",
-      "status": "active",
-      "id": 8
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "status": "active",
-      "id": 9
+      "firstName": "Elon",
+      "lastName": "Musk",
+      "status": true,
+      "updated": false
     }
   ]
 }

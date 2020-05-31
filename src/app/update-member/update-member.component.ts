@@ -20,7 +20,6 @@ export class UpdateMemberComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    console.log(this.member);
     if(form.value.firstName === "" && form.value.lastName === ""){
       form.value.firstName = this.member[0]
       form.value.lastName = this.member[1]

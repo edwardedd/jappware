@@ -17,13 +17,12 @@ export class CatalogComponent implements OnInit {
       (response) =>
       {
         this.members = response;
-        console.log(this.members)
       }
     );
   };
 
-  addToList(firstName,lastName,status, id) {
-    this.membersService.addMemberList(firstName,lastName,status,id)
+  addToList(firstName,lastName,status, id,updated) {
+    this.membersService.addMemberList(firstName,lastName,status,id,updated)
   }
 
 }

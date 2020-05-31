@@ -14,3 +14,13 @@ button{
   height: 80vh;
   overflow: auto;
 }
+.memberWrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 10px;
+  width: 80%;
+}
+.add{
+  height: 50%;
+}

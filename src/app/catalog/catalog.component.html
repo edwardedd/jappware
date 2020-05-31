@@ -1,17 +1,22 @@
-<div class="memberCard-wrapper">
-  <div *ngFor="let member of members; let i = index" class="memberWrapper card">
-    <div class="card-body">
-      <p>{{member.firstName}}</p>
-      <p>{{member.lastName}}</p>
-      <p>{{member.status}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-12">
+      <div class="memberCard-wrapper">
+        <div *ngFor="let member of members; let i = index" class="memberWrapper card">
+          <div class="card-body">
+            <p>{{member.firstName}}</p>
+            <p>{{member.lastName}}</p>
+          </div>
+          <button
+            class="btn btn-primary add"
+            (click)="addToList(member.firstName,member.lastName,member.status, member.id,member.updated)"
+          >
+            add to list
+          </button>
+        </div>
+      </div>
+      <hr>
+      <app-add-component></app-add-component>
     </div>
-    <button
-      class="btn btn-primary"
-      (click)="addToList(member.firstName,member.lastName,member.status, member.id)"
-    >
-      add to list
-    </button>
   </div>
 </div>
-<hr>
-<app-add-component></app-add-component>

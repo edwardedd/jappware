@@ -1,4 +1,3 @@
-
 <div class="numbers">
   <p *ngIf="listMembers">full member: {{listMembers.length}}</p>
   <p>deactivated member: {{deactivateMembers}}</p>
@@ -11,12 +10,12 @@
       <p id="name{{i}}">{{ member.firstName }}</p>
       <p id="lastName{{i}}">{{ member.lastName }}</p>
       <p>{{ member.status ? "active" : "deactivated" }}</p>
-      <p *ngIf="updatedMember>0">updated member</p>
+      <p>{{ member.updated ? "updated member" : " "}}</p>
     </div>
     <div class="buttonWrapper">
       <button
         class="btn btn-danger"
-        (click)="removeMember(i,member.status)"
+        (click)="removeMember(i,member.status, member)"
         [disabled]="!member.status"
       >
         remove from list
@@ -38,10 +37,14 @@
     </div>
   </div>
 </div>
-<hr>
 
 <app-update-member
-[member]="member"
-(onChanged)="onChanged($event)"
+  [member]="member"
+  (onChanged)="onChanged($event)"
 ></app-update-member>
-<button class="btn btn-danger clearStorage" (click)="clearStorage()" >Clear the list</button>
+<button
+  class="btn btn-danger clearStorage"
+  (click)="clearStorage()"
+>
+Clear the list
+</button>

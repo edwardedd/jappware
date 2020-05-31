@@ -1,3 +1,7 @@
 <div class="navbar navbar-dark bg-primary">
-  <img src="./../../assets/primary-logo.webp" alt="logo">
+  <div class="logo">
+    <img src="./../../assets/primary-logo.webp" alt="logo">
+    <h3>Jappware</h3>
+  </div>
+  <a *ngIf="showElem" (click)='goBack()' class="goBack">Go back</a>
 </div>

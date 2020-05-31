@@ -19,11 +19,15 @@ export class ListComponent implements OnInit {
     this.getData();
     this.getUpdatedMember();
     this.getDeactivateList();
+    this.service.goToMainPage();
   };
 
-  removeMember(index,status) {
+  removeMember(index,status,member) {
     this.listMembers.splice(index,1);
     localStorage.setItem('member', JSON.stringify(this.listMembers));
+    if(member.updated == true){
+      this.updatedMember --;
+    }
   };
 
   deacivateMeber(e,status,member) {
@@ -38,15 +42,16 @@ export class ListComponent implements OnInit {
   updateMember(e,index,member){
     this.member = [member.firstName, member.lastName,e.target.id];
     this.updateIndex = index;
-    console.log(
-      this.updateIndex
-    )
   };
 
   ngDoCheck() {
     if(this.listMembers.length==0){
       this.updatedMember = 0;
+      this.deactivateMembers = 0;
+      localStorage.setItem('deactivateMembers', JSON.stringify(this.deactivateMembers));
+      localStorage.setItem('updatedMember', JSON.stringify(this.updatedMember));
     };
+    this.getData()
   };
 
   getData() {
@@ -73,7 +78,7 @@ export class ListComponent implements OnInit {
     } else{
       this.updatedMember = 0;
     }
-  }
+  };
 
   deactivateList(member){
     if(member==false){
@@ -81,7 +86,7 @@ export class ListComponent implements OnInit {
       localStorage.setItem('deactivateMembers', JSON.stringify(this.deactivateMembers));
     }else if(member==true){
       this.deactivateMembers = this.deactivateMembers -1
-    }  
+    }
   };
 
   getDeactivateList() {
@@ -90,17 +95,16 @@ export class ListComponent implements OnInit {
     } else{
       this.deactivateMembers = 0;
     }
-  }
+  };
 
   clearStorage(){
     localStorage.clear();
     this.listMembers = this.service.getFromStorage();
     location.reload()
-  }
+  };
 
   ngOnDestroy() {
-    console.log('uytrewq')
     localStorage.clear();
-  }
+  };
 
 }
