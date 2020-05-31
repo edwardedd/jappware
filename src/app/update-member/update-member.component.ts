@@ -20,22 +20,16 @@ export class UpdateMemberComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    if(form.value.firstName === "" && form.value.lastName === ""){
+    if(form.value.firstName === ""){
       form.value.firstName = this.member[0]
-      form.value.lastName = this.member[1]
-      this.onChanged.emit([form.value.firstName, form.value.lastName]);
-    }else if(form.value.firstName === ""){
-      form.value.firstName = this.member[0]
-      this.onChanged.emit([form.value.firstName, form.value.lastName]);
+      this.onChanged.emit([this.member[0], form.value.lastName]);
     }else if(form.value.lastName === ""){
-      form.value.lastName = this.member[0]
-      this.onChanged.emit([form.value.firstName, form.value.lastName]);
+      form.value.lastName = this.member[1]
+      this.onChanged.emit([form.value.firstName, this.member[1]]);
     }else {
       this.onChanged.emit([form.value.firstName, form.value.lastName]);
-
     }
-
-    form.reset();
+    form.resetForm();
   };
 
   getData() {

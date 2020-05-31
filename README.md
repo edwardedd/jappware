@@ -12,5 +12,3 @@ For this task i used:
       and run json-server (json-server --watch db.json) !!!!
 
 Also i used services,models,Eventemitter,life-cycle hooks
-
-for
