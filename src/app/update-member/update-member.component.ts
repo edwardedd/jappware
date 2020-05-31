@@ -12,11 +12,16 @@ export class UpdateMemberComponent implements OnInit {
   @Output() onChanged = new EventEmitter<{firstName:string, lastName:string}[]>()
   updateMember:{firstName, lastName}[] = [];
   listMembers: {firstName:string, lastName:string, status: boolean,id:number}[] = [];
+  openWindow: boolean = false;
 
   constructor(private service: MembersService) { }
 
   ngOnInit(): void {
     this.getData();
+  };
+
+  ngDoCheck() {
+    this.openWindow = this.service.getUpdateWindow()
   }
 
   onSubmit(form: NgForm){
@@ -30,6 +35,7 @@ export class UpdateMemberComponent implements OnInit {
       this.onChanged.emit([form.value.firstName, form.value.lastName]);
     }
     form.resetForm();
+    this.service.closeUpdateWindow()
   };
 
   getData() {

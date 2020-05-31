@@ -8,7 +8,8 @@ import { Items } from './Items';
 export class MembersService {
   mockUrl = 'http://localhost:3000/members'
   memberList: {firstName:string, lastName:string, status:boolean,id:number,updated:boolean}[] = [];
-  showInHeader:boolean=false;
+  showInHeader: boolean = false;
+  updateWindow: boolean = false;
 
   constructor(private http: HttpClient){}
   getAllItems() {
@@ -43,9 +44,21 @@ export class MembersService {
 
   goToStartPage() {
     this.showInHeader = false;
-  }
+  };
 
   getShow(){
     return this.showInHeader;
-  }
+  };
+
+  openUpdateWindow(){
+    this.updateWindow = true;
+  };
+
+  closeUpdateWindow(){
+    this.updateWindow = false;
+  };
+
+  getUpdateWindow() {
+    return this.updateWindow
+  };
 }
