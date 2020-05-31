@@ -18,11 +18,10 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
     this.getUpdatedMember();
-    this.deactivateList()
+    this.getDeactivateList();
   };
 
-  removeMember(index) {
-    console.log(index);
+  removeMember(index,status) {
     this.listMembers.splice(index,1);
     localStorage.setItem('member', JSON.stringify(this.listMembers));
   };
@@ -30,7 +29,7 @@ export class ListComponent implements OnInit {
   deacivateMeber(e,status,member) {
     if(e.target.id==status){
       member.status = !member.status;
-      this.deactivateList();
+      this.deactivateList(member.status);
       localStorage.setItem('member', JSON.stringify(this.listMembers));
     }
 
@@ -76,15 +75,22 @@ export class ListComponent implements OnInit {
     }
   }
 
-  deactivateList(){
-    // if(member==false){
-    //   this.deactivateMembers = this.deactivateMembers +1
-    //   localStorage.setItem('deactivateMembers', JSON.stringify(this.deactivateMembers));
-    // }else if(member==true){
-    //   this.deactivateMembers = this.deactivateMembers -1
-    // }
-    
+  deactivateList(member){
+    if(member==false){
+      this.deactivateMembers = this.deactivateMembers +1
+      localStorage.setItem('deactivateMembers', JSON.stringify(this.deactivateMembers));
+    }else if(member==true){
+      this.deactivateMembers = this.deactivateMembers -1
+    }  
   };
+
+  getDeactivateList() {
+    if("deactivateMembers" in localStorage){
+      this.deactivateMembers = JSON.parse(localStorage.getItem('deactivateMembers'))
+    } else{
+      this.deactivateMembers = 0;
+    }
+  }
 
   clearStorage(){
     localStorage.clear();

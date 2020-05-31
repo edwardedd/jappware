@@ -15,7 +15,13 @@ export class AddComponentComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    this.service.postItems(form.value.firstName, form.value.lastName).subscribe()
+    this.service.postItems(form.value.firstName, form.value.lastName).subscribe(
+      call =>{
+        console.log("success");
+        form.reset();
+        location.reload();
+      }
+    )
   }
 
 }

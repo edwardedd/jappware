@@ -1,8 +1,8 @@
 
 <div class="numbers">
-  <p *ngIf="listMembers">full member{{listMembers.length}}</p>
-  <p>deactivated member <span *ngIf="deactivateMembers">{{deactivateMembers}}</span></p>
-  <p>updated member{{updatedMember}}</p>
+  <p *ngIf="listMembers">full member: {{listMembers.length}}</p>
+  <p>deactivated member: {{deactivateMembers}}</p>
+  <p>updated member: {{updatedMember}}</p>
 </div>
 
 <div class="list-wrapper">
@@ -16,7 +16,7 @@
     <div class="buttonWrapper">
       <button
         class="btn btn-danger"
-        (click)="removeMember(i)"
+        (click)="removeMember(i,member.status)"
         [disabled]="!member.status"
       >
         remove from list

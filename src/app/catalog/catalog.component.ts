@@ -20,11 +20,6 @@ export class CatalogComponent implements OnInit {
         console.log(this.members)
       }
     );
-    console.log('1111',this.members)
-  };
-
-  addMember(name, lastName) {
-    this.members.push({firstName:name, lastName: lastName})
   };
 
   addToList(firstName,lastName,status, id) {

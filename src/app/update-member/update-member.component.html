@@ -1,5 +1,6 @@
 <div class="updateMember">
-  <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+  <h6 *ngIf="listMembers.length>0">If you want update member of list, please click button <br> "update the member"</h6>
+  <form #updateForm="ngForm" (ngSubmit)="onSubmit(updateForm)">
     <input
       type="text"
       class="form-control"
@@ -21,6 +22,7 @@
     <button
       class="btn btn-primary"
       type="submit"
+      [disabled]="!updateForm.dirty"
     >
       Update member
     </button>

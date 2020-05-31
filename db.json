@@ -16,7 +16,7 @@
       "id": 3,
       "firstName": "Rick",
       "lastName": "Parrot",
-      "status": false
+      "status": true
     },
     {
       "id": 4,
@@ -35,6 +35,24 @@
       "lastName": "Mosesov",
       "id": 6,
       "status": true
+    },
+    {
+      "firstName": "Rickeeez",
+      "lastName": "Parrot",
+      "status": "active",
+      "id": 7
+    },
+    {
+      "firstName": "Olya",
+      "lastName": "Sanchez",
+      "status": "active",
+      "id": 8
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "status": "active",
+      "id": 9
     }
   ]
 }

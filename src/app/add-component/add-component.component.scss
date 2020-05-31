@@ -1,11 +1,16 @@
 .addComponent{
   position: fixed;
   bottom: 0px;
+  font-family: 'Ubuntu Condensed', sans-serif;
   form{
     display: flex;
   }
   input{
     width: 30%;
+  }
+  button{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
   }
 }
 

@@ -17,7 +17,8 @@ export class MembersService {
   postItems(firstName: string, lastName: string) {
     return this.http.post<Items[]>(this.mockUrl, {
       firstName: firstName,
-      lastName: lastName
+      lastName: lastName,
+      status: 'active'
     })
   };
 
